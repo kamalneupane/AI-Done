@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="container">
+    <div class="m-2 container">
+        <div class="text-center text-uppercase fw-bold fs-2">AI Autonomous with Pest Detection</div>
+        <div class="row text-center">
+            <div class="col-4 border border">
+                <h4>Drone Commands</h4>
+                <button id="btn-1" onclick="Drone('command'); commandsActive = 1;">Start</button>
+                <div class="row">
+                    
+                    <div class="col-6">
+                         
+                            <button id="btn-1" onclick="Drone('takeoff');">Take Off</button>
+                    </div>
+                    <div class="col-6">
+                            <button id="btn-1" onclick="Drone('forward 20');">Forward</button>
+                    </div>
+                    <div class="col-6">
+                            <button id="btn-1" onclick="Drone('land');">Land</button>
+                    </div>
+                    <div class="col-6">
+                            <button id="btn-1" onclick="Drone('back 20');">Back</button>
+                    </div>
+                    <div class="col-6">
+                            <button id="btn-1" onclick="Drone('cw 90');">Turn CW</button>
+                    </div>
+                    <div class="col-6">
+                        <a href="" class="atag">
+                            <button id="btn-1" onclick="Drone('ccw 90');">Turn CCW</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 border border">
+                <div class="row">
+                    <h3>Drone Controls</h3>
+                    <div class="col-6">
+                        <div class="col-12"><button id="btn-1" onclick="Drone('up 20');">Up</button></div>
+                        <div class="row">
+                            <div class="col-6"><button id="btn-1" onclick="Drone('left 20');">Left</button></div>
+                            <div class="col-6"><button id="btn-1" onclick="Drone('right 20');">Right</button></div>
+                        </div>
+                        <div class="col-12"><button id="btn-1" onclick="Drone('down 20');">Down</button></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="col-12"><button id="btn-1" onclick="Drone('flip f');">Flip Forward</button></div>
+                        <div class="row">
+                            <div class="col-6"><button id="btn-1" onclick="Drone('flip l');">Flip Left</button></div>
+                            <div class="col-6"><button id="btn-1" onclick="Drone('flip r');">Flip Right</button></div>
+                        </div>
+                        <div class="col-12"><button id="btn-1" onclick="Drone('flip b');">Flip Back</button></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-4">
+                <div><h4>Get Drone's Information</h4></div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th><button id="btn-1" onclick="Drone('get speed');"> Speed cm/s</button></th>
+                            <th><button id="btn-1" onclick="Drone('get time');">Fly Time s</button></th>
+                        </tr>
+                        <tr>
+                            <th><button id="btn-1" onclick="Drone('get battery');">Battery Health</button></th>
+                            <th><button id="btn-1" onclick="Drone('get height');">Height</button></th>
+                        </tr>
+                        <tr>
+                            <th><button id="btn-1" onclick="Drone('get tof');">Distance(cm)</button></th>
+                            <th><button id="btn-1" onclick="Drone('get temp');">TEMP degC</button></th>
+                        </tr>
+                        <tr>
+                            <th><button id="btn-1" onclick="Drone('get baro');">Barometer (cm)</button></th>
+                            <th><button id="btn-1" onclick="Drone('get wifi');">WIFI SNR</button></th>
+                        </tr>
+
+                    </thead>
+                </table>
+            </div>
+            <div class="col-8 border border-primary">
+                <h3>Camera View</h3>
+                <td>
+                    <img src="http://127.0.0.1:8080/tello/stream.mjpeg">
+                </td>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col">
+                <svg class = "graph" height = "325" width = "600"> 
+                    <polyline id = "brightnessGraph" style = "fill: none; stroke: darkblue; stroke-width:3" />
+                    <text x = "95" y = "315" fill = "black">0</text>
+                    <text x = "70" y = "50" fill = "black">250</text> 
+                    <text x = "70" y = "100" fill = "black">200</text> 
+                    <text x = "70" y = "150" fill = "black">150</text> 
+                    <text x = "70" y = "200" fill = "black">100</text> 
+                    <text x = "70" y = "250" fill = "black">50</text> 
+                    <text x = "320" y = "320" fill = "darkblue">Time</text> //x-axis title
+                    <text x = "0" y = "150" fill = "darkblue" id = "yTitleOne">Drone</text>//y-axis title
+                    <text x = "0" y = "170" fill = "darkblue" id = "yTitleTwo">Height cm</text>//y-axis title
+                    <line x1 = "100" y1 = "300" x2 = "600" y2 = "300" stroke = "black"/> //x-axis line                 
+                    <line x1 = "100" y1 = "0" x2 = "100" y2 = "300" stroke = "black"/> //y-axis line
+                </svg>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js" type="text/javascript"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
