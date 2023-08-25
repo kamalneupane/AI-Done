@@ -3,7 +3,7 @@ body {
     background-color: antiquewhite;
 }
 
-#btn-1{ 
+.btn{ 
     display: inline-block;
     outline: 0;
     border: 0;
@@ -18,7 +18,7 @@ body {
     text-transform: uppercase;
 }
 
-#btn-1:hover{
+.btn:hover{
     background: 0 0;
     color: #ff4742;
 }

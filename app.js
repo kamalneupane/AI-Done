@@ -2,6 +2,23 @@ var dronepos = 0;
 var commandsActive =0;
 var receivedData = "None";
 
+document.addEventListener("keydown", e => {
+	e.preventDefault();
+	switch(e.keyCode){
+		case 37:
+			document.getElementById('btnLeft').click();
+			break;
+		case 38:
+			document.getElementById('btnUp').click();
+			break;
+		case 39:
+			document.getElementById('btnRight').click();
+			break;
+		case 40:
+			document.getElementById('btnDown').click();
+	}
+});
+
 function Drone(control) {
 var connection = 
 new WebSocket('ws://127.0.0.1:65432');
