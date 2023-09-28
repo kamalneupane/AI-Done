@@ -13,24 +13,25 @@
         <div class="row text-center">
             <div class="col-4 border border">
                 <h4>Drone Commands</h4>
+                <hr>
                 <button class="btn" onclick="Drone('command'); commandsActive = 1;">Start</button>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-6" id="takeoff">
                         <button class="btn" id="btn-1" onclick="Drone('takeoff');">Take Off</button>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6" id="takeoff">
                         <button class="btn" id="btn-1" onclick="Drone('forward 20');">Forward</button>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6" id="takeoff">
                         <button class="btn" id="btn-1" onclick="Drone('land');">Land</button>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6" id="takeoff">
                         <button class="btn" id="btn-1" onclick="Drone('back 20');">Back</button>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6" id="takeoff">
                         <button class="btn" id="btn-1" onclick="Drone('cw 90');">Turn CW</button>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6" id="takeoff">
                         <a href="" class="atag">
                             <button class="btn" id="btn-1" onclick="Drone('ccw 90');">Turn CCW</button>
                         </a>
@@ -40,6 +41,7 @@
             <div class="col-8 border border">
                 <div class="row">
                     <h3>Drone Controls</h3>
+                    <hr>
                     <div class="col-6">
                         <div class="col-12"><button class="btn" id="btnUp" onclick="Drone('up 20');">Up</button></div>
                         <div class="row">
@@ -49,12 +51,12 @@
                         <div class="col-12"><button class="btn" id="btnDown" onclick="Drone('down 20');">Down</button></div>
                     </div>
                     <div class="col-6">
-                        <div class="col-12"><button class="btn" id="btn-1" onclick="Drone('flip f');">Flip Forward</button></div>
+                        <div class="col-12"><button class="btn" id="btn-1" onclick="Drone('flip f');">F Forward</button></div>
                         <div class="row">
-                            <div class="col-6"><button class="btn" id="btn-1" onclick="Drone('flip l');">Flip Left</button></div>
-                            <div class="col-6"><button class="btn" id="btn-1" onclick="Drone('flip r');">Flip Right</button></div>
+                            <div class="col-6"><button class="btn" id="btn-1" onclick="Drone('flip l');">F Left</button></div>
+                            <div class="col-6"><button class="btn" id="btn-1" onclick="Drone('flip r');">F Right</button></div>
                         </div>
-                        <div class="col-12"><button class="btn" id="btn-1" onclick="Drone('flip b');">Flip Back</button></div>
+                        <div class="col-12"><button class="btn" id="btn-1" onclick="Drone('flip b');">F Back</button></div>
                     </div>
                 </div>
                 
@@ -63,6 +65,7 @@
         <div class="row text-center">
             <div class="col-4">
                 <div><h4>Get Drone's Information</h4></div>
+                <hr>
                 <table class="table" style="background-color: rgb(239, 238, 236);;">
                     <thead>
                         <tr>
@@ -87,9 +90,17 @@
             </div>
             <div class="col-8 border border-primary">
                 <h3>Camera View</h3>
-                <td>
-                    <img src="http://127.0.0.1:8080/tello/stream.mjpeg">
-                </td>
+                <hr>
+                <div class="row">
+                    <div class="col-6" id="cameraView">
+                        <h3>Camera</h3>
+                        <!-- <img src="http://127.0.0.1:8080/tello/stream.mjpeg"> -->
+                    </div>
+                    
+                    <div class="col-6">
+                        <h3>Detectoin</h3>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row text-center">
